@@ -50,3 +50,8 @@ func _on_Player_area_entered(area):
 		area.pickup()
 		emit_signal("picked")
 		$AudioStreamPlayer.play()
+		
+func game_over():
+	set_process(false)
+	$AnimatedSprite.play("hurt")
+	

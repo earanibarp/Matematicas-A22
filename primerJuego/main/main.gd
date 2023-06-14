@@ -11,6 +11,7 @@ func _ready():
 	randomize()
 	spawn_gems()
 	time_left = 20
+	$LabelGameOver.visible = false
 
 
 func _process(delta):
@@ -32,8 +33,12 @@ func _on_GameTimer_timeout():
 	time_left -= 1 # time_left = time_left - 1
 	$HUD.update_timer(time_left)
 	if time_left <= 0:
-		$GameTimer.stop()
+		game_over()
 
+func game_over():
+	$GameTimer.stop()
+	$LabelGameOver.visible = true
+	$player.game_over()
 
 func _on_player_picked():
 	score += 1
