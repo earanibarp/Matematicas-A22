@@ -58,5 +58,3 @@ func _physics_process(delta):
 		
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-#func _process(delta):
-#	pass
